@@ -100,6 +100,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:cen
 .ctag-growth{background:var(--sage-light);color:var(--sage);border:1px solid #c0d4c8;}
 .ctag-data{background:#f0ecf8;color:#6040a0;border:1px solid #d0c0e8;}
 .ctag-project{background:var(--linen);color:var(--bark);border:1px solid var(--linen-dark);}
+.ctag-workshop{background:#e8f4fd;color:#1a6a9a;border:1px solid #b0d8f0;}
 .ctitle{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--bark);letter-spacing:-0.01em;line-height:1.3;}
 .ccase-toggle{width:32px;height:32px;border-radius:50%;border:1px solid var(--linen-dark);background:var(--parchment);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;}
 .ccase-toggle svg{width:14px;height:14px;stroke:var(--smoke);transition:transform 0.25s;}
@@ -179,10 +180,10 @@ footer{border-top:1px solid var(--linen-dark);padding:28px 56px;display:flex;ali
 <nav>
   <a href="#" class="nav-logo">Apramay<span> G.</span></a>
   <ul class="nav-links">
-    <li><a href="#" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
-    <li><a href="#" onclick="event.preventDefault();document.getElementById('experience').scrollIntoView({behavior:'smooth'})">Experience</a></li>
-    <li><a href="#" onclick="event.preventDefault();document.getElementById('work').scrollIntoView({behavior:'smooth'})">Work</a></li>
-    <li><a href="#" onclick="event.preventDefault();document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Say hello →</button>
 </nav>
@@ -202,8 +203,8 @@ footer{border-top:1px solid var(--linen-dark);padding:28px 56px;display:flex;ali
       <span class="pill">Three-sided Platforms</span>
     </div>
     <div class="hero-actions">
-      <button class="btn-main" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">View experience →</button>
-      <button class="btn-ghost" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">See my work</button>
+      <a href="#experience" class="btn-main">View experience →</a>
+      <a href="#work" class="btn-ghost">See my work</a>
     </div>
   </div>
   <div class="hero-right">
@@ -383,6 +384,60 @@ footer{border-top:1px solid var(--linen-dark);padding:28px 56px;display:flex;ali
       </div>
     </div>
 
+    <div class="ccase" id="case6">
+      <div class="ccase-header" onclick="toggleCase('case6')">
+        <div class="ccase-header-left">
+          <span class="ctag ctag-project">Personal Project</span>
+          <div class="ctitle">IPO Pulse — Automated Daily Market Intelligence Tool</div>
+        </div>
+        <div class="ccase-toggle"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M2 4l5 5 5-5"/></svg></div>
+      </div>
+      <div class="ccase-body">
+        <div class="cbody-inner">
+          <p class="cdesc-full">Built a fully automated IPO monitoring tool that fetches live market data from the Finnhub API every morning, filters for high-value listings above $200M in offer size, and delivers a formatted HTML digest straight to my inbox — no manual work, no noise. Scheduled via GitHub Actions cron job so it runs daily without any intervention. The whole thing is tested, documented, and production-ready.</p>
+          <div class="cmetrics">
+            <div><div class="cmv">$200M+</div><div class="cml">Deal size filter</div></div>
+            <div><div class="cmv">Daily</div><div class="cml">Fully automated</div></div>
+            <div><div class="cmv">0</div><div class="cml">Manual steps</div></div>
+          </div>
+          <div class="cdetail-grid">
+            <div class="cdetail-item"><div class="cdetail-label">What it does</div><div class="cdetail-val">Pulls live IPO calendar data, filters by deal size, and emails a formatted daily briefing automatically</div></div>
+            <div class="cdetail-item"><div class="cdetail-label">How it runs</div><div class="cdetail-val">GitHub Actions cron job — triggers daily, no infrastructure to manage, zero ongoing effort</div></div>
+            <div class="cdetail-item"><div class="cdetail-label">Stack</div><div class="cdetail-val">Python, Finnhub API, GitHub Actions, SMTP, dotenv — fully tested with automated test suite</div></div>
+            <div class="cdetail-item"><div class="cdetail-label">Why I built it</div><div class="cdetail-val">Tracking high-value IPOs manually is noisy and slow — I wanted a zero-effort signal that only surfaces what actually matters</div></div>
+          </div>
+          <div class="c-outcome"><div class="c-outcome-label">What it shows</div><div class="c-outcome-text">This is how I think about data products — identify a real information need, eliminate the manual steps, and deliver a clean signal automatically. The same instinct drives how I build product instrumentation and alerting systems at work.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ccase" id="case5">
+      <div class="ccase-header" onclick="toggleCase('case5')">
+        <div class="ccase-header-left">
+          <span class="ctag ctag-project">Personal Project</span>
+          <div class="ctitle">OrbitLog — Astronaut &amp; Mission Tracking API</div>
+        </div>
+        <div class="ccase-toggle"><svg viewBox="0 0 14 14" fill="none" stroke-width="1.5"><path d="M2 4l5 5 5-5"/></svg></div>
+      </div>
+      <div class="ccase-body">
+        <div class="cbody-inner">
+          <p class="cdesc-full">Built a production-ready REST API service for tracking astronaut profiles and spaceflight missions using an AI-driven "spec coding" approach with Cursor. I wrote the requirements doc and OpenAPI contract first, then let the AI agent work through implementation — ending up with a fully functional CRUD backend backed by Apache Cassandra via DataStax Astra DB. The whole point was to test how far precise specs could take an agentic coding workflow.</p>
+          <div class="cmetrics">
+            <div><div class="cmv">13</div><div class="cml">REST endpoints shipped</div></div>
+            <div><div class="cmv">2</div><div class="cml">NoSQL tables designed</div></div>
+            <div><div class="cmv">AI</div><div class="cml">Spec-first, agent-built</div></div>
+          </div>
+          <div class="cdetail-grid">
+            <div class="cdetail-item"><div class="cdetail-label">What I built</div><div class="cdetail-val">FastAPI backend with full CRUD for astronauts &amp; missions, connected to Apache Cassandra (Astra DB)</div></div>
+            <div class="cdetail-item"><div class="cdetail-label">Methodology</div><div class="cdetail-val">Spec Coding — requirements → design doc → OpenAPI spec → AI-generated implementation</div></div>
+            <div class="cdetail-item"><div class="cdetail-label">Stack</div><div class="cdetail-val">Python, FastAPI, Apache Cassandra, DataStax Astra DB, Pydantic, Cursor AI</div></div>
+            <div class="cdetail-item"><div class="cdetail-label">Why I built it</div><div class="cdetail-val">To sharpen how I write specs and understand what agentic coding can actually deliver when given precise product requirements</div></div>
+          </div>
+          <div class="c-outcome"><div class="c-outcome-label">Key takeaway</div><div class="c-outcome-text">The quality of the output was directly tied to the quality of the spec. Writing tighter requirements and clearer API contracts made the AI agent dramatically more effective — which maps exactly to how I think about PM work.</div></div>
+        </div>
+      </div>
+    </div>
+
     <div class="ccase" id="case4">
       <div class="ccase-header" onclick="toggleCase('case4')">
         <div class="ccase-header-left">
@@ -424,7 +479,7 @@ footer{border-top:1px solid var(--linen-dark);padding:28px 56px;display:flex;ali
   <div class="skills-grid">
     <div class="sgroup"><div class="sgroup-title">Product Management</div><div class="stags"><span class="stag">Strategy</span><span class="stag">Roadmapping</span><span class="stag">OKRs</span><span class="stag">A/B Experimentation</span><span class="stag">GTM</span><span class="stag">User Research</span><span class="stag">User Stories</span><span class="stag">Recommendation Systems</span><span class="stag">Stakeholder Mgmt</span></div></div>
     <div class="sgroup"><div class="sgroup-title">Data &amp; Analytics</div><div class="stags"><span class="stag">SQL</span><span class="stag">Python</span><span class="stag">Snowflake</span><span class="stag">Tableau</span><span class="stag">Product Analytics</span><span class="stag">ML Feature Engineering</span><span class="stag">Agile / Scrum</span></div></div>
-    <div class="sgroup"><div class="sgroup-title">Technical</div><div class="stags"><span class="stag">Generative AI</span><span class="stag">LLMs</span><span class="stag">API Design</span><span class="stag">CI/CD</span><span class="stag">Azure DevOps</span><span class="stag">Cloud Architecture</span><span class="stag">SAP</span><span class="stag">Git</span></div></div>
+    <div class="sgroup"><div class="sgroup-title">Technical</div><div class="stags"><span class="stag">Generative AI</span><span class="stag">LLMs</span><span class="stag">API Design</span><span class="stag">CI/CD</span><span class="stag">Azure DevOps</span><span class="stag">Cloud Architecture</span><span class="stag">SAP</span><span class="stag">Git</span><span class="stag">Apache Cassandra</span><span class="stag">FastAPI</span></div></div>
     <div class="sgroup"><div class="sgroup-title">Tools</div><div class="stags"><span class="stag">Figma</span><span class="stag">Jira</span><span class="stag">Confluence</span></div></div>
     <div class="sgroup"><div class="sgroup-title">Education</div><div class="stags" style="flex-direction:column;gap:10px;"><div><div style="font-size:13px;font-weight:500;color:var(--bark);">MBA · Business Analytics</div><div style="font-size:12px;color:var(--smoke);">Temple University, Fox School · 2024</div></div><div><div style="font-size:13px;font-weight:500;color:var(--bark);">B.Eng · Power Engineering</div><div style="font-size:12px;color:var(--smoke);">Jadavpur University · 2019</div></div></div></div>
     <div class="sgroup"><div class="sgroup-title">Certifications</div><div class="stags"><span class="stag">Bloomberg Market Concepts</span><span class="stag">Generative AI — Microsoft</span><span class="stag">Power BI Essential Training</span><span class="stag">Azure 104</span></div></div>
